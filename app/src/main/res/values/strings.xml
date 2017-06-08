@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">쿠폰관리</string>
+    <string name="app_name">기프트북</string>
     <string name="title_unused">미사용</string>
     <string name="title_used">사용완료</string>
     <string name="title_option">옵션</string>
