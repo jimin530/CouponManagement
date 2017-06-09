@@ -51,7 +51,7 @@ public class DBController {
     public void deleteData(int index) {
         Values.getInstance().realm.beginTransaction();
         // 특정 index 값 삭제
-        Values.getInstance().couponList.deleteFromRealm(index);
+        //Values.getInstance().couponList.deleteFromRealm(index);
         // DB 초기화
         Values.getInstance().couponList.deleteAllFromRealm();
         Values.getInstance().realm.commitTransaction();

@@ -1,18 +1,9 @@
 package com.ensharp.jmdroid.couponmanagement.ui;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -20,13 +11,11 @@ import android.view.View;
 
 import com.ensharp.jmdroid.couponmanagement.R;
 import com.ensharp.jmdroid.couponmanagement.realm.controll.DBController;
-import com.ensharp.jmdroid.couponmanagement.util.bitmap.BitmapController;
 import com.ensharp.jmdroid.couponmanagement.value.Values;
 
 public class BaseActivity extends AppCompatActivity {
 
     DBController dbController = new DBController();
-    BitmapController bitmapController = new BitmapController();
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -73,41 +62,9 @@ public class BaseActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.getMenu().getItem(Values.getInstance().selectedItemNumber).setChecked(true);
 
-        Bitmap bitmap = getBitmapFromDrawable(this, R.drawable.img_sample);
-        byte[] byteArray = bitmapController.bitmapToByteArray(bitmap);
-
-        /*CouponVO couponVO = new CouponVO(
-                false,
-                0,
-                "제목",
-                "내용",
-                "등록날짜",
-                "유효기간",
-                "사용처",
-                byteArray,
-                "바코드숫자",
-                byteArray
-        );
-        dbController.insertData(couponVO);*/
-
-        Log.i("확인", ">>>>>   List.size :  " + Values.getInstance().couponList.size());
-    }
-
-    public static Bitmap getBitmapFromDrawable(Context context, @DrawableRes int drawableId) {
-        Drawable drawable = ContextCompat.getDrawable(context, drawableId);
-
-        if (drawable instanceof BitmapDrawable) {
-            return ((BitmapDrawable) drawable).getBitmap();
-        } else if (drawable instanceof VectorDrawable || drawable instanceof VectorDrawableCompat) {
-            Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(bitmap);
-            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-            drawable.draw(canvas);
-
-            return bitmap;
-        } else {
-            throw new IllegalArgumentException("unsupported drawable type");
-        }
+        Log.i("확인", ">>>>>   Coupon.size :  " + Values.getInstance().couponList.size());
+//        dbController.deleteData(0);
+//        Log.i("확인", ">>>>>   Coupon.size :  " + Values.getInstance().couponList.size());
     }
 
     @Override
