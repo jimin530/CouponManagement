@@ -2,11 +2,12 @@ package com.ensharp.jmdroid.couponmanagement.realm.controll;
 
 import android.content.Context;
 
-import com.ensharp.jmdroid.couponmanagement.vo.CouponVO;
 import com.ensharp.jmdroid.couponmanagement.realm.table.TBCoupon;
 import com.ensharp.jmdroid.couponmanagement.value.Values;
+import com.ensharp.jmdroid.couponmanagement.vo.CouponVO;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 /**
  * Created by jimin on 2017. 6. 9..
@@ -58,11 +59,19 @@ public class DBController {
     }
 
     // select
-    /*public void onGet(View view) {
-        mRealm.beginTransaction();
-        RealmResults<UserVO> userList = mRealm.where(UserVO.class).equalTo("name", "John").findAll();
-        mRealm.commitTransaction();
+    public String getCoupon(String timeKey) {
+        Values.getInstance().realm.beginTransaction();
+        RealmResults<TBCoupon> coupon = Values.getInstance().realm.where(TBCoupon.class).equalTo("registrationDate", timeKey).findAll();
+        Values.getInstance().realm.commitTransaction();
 
-        Log.i("최종 확인 : ", "이름 : " + userList.get(0).getName() + ", 나이 : " + userList.get(0).getAge());
-    }*/
+        return coupon.get(0).getCouponImage();
+    }
+
+    // update to used
+    public void updateToUsed(String timeKey) {
+        Values.getInstance().realm.beginTransaction();
+        TBCoupon tbCoupon = Values.getInstance().realm.where(TBCoupon.class).equalTo("registrationDate", timeKey).findFirst();
+        tbCoupon.setUsed(true);
+        Values.getInstance().realm.commitTransaction();
+    }
 }

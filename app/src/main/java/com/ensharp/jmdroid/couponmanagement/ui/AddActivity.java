@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,6 +22,7 @@ public class AddActivity extends AppCompatActivity {
     ImageView iv_selected_image;
 
     String selectedImagePath;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +59,6 @@ public class AddActivity extends AppCompatActivity {
                             selectedImagePath = UriController.getRealPathFromURI_BelowAPI11(this, selectedImage);
                         }*/
                         selectedImagePath = UriController.getRealPathFromURI(this, selectedImage);
-                        Log.i("Add에서 경로 확인 : ", selectedImagePath);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -72,7 +71,7 @@ public class AddActivity extends AppCompatActivity {
         onChangeCouponImage();
     }
 
-    public void onBackToMain(View view) {
+    public void onBackToMainFromAdd(View view) {
         onBackPressed();
     }
 
@@ -81,13 +80,14 @@ public class AddActivity extends AppCompatActivity {
             Toast.makeText(this, "쿠폰 이름을 입력해주세요.", Toast.LENGTH_SHORT).show();
         } else {
             try {
+                long time = System.currentTimeMillis();
                 DBController dbController = new DBController();
                 CouponVO couponVO = new CouponVO(
                         false,
                         0,
                         et_coupon_title.getText().toString(),
                         et_coupon_content.getText().toString(),
-                        "등록날짜",
+                        String.valueOf(time),
                         "유효기간",
                         "사용처",
                         selectedImagePath,
