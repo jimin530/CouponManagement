@@ -8,14 +8,19 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.ensharp.jmdroid.couponmanagement.R;
-import com.ensharp.jmdroid.couponmanagement.util.adapter.UsedCouponRVAdapter;
+import com.ensharp.jmdroid.couponmanagement.realm.table.TBCoupon;
+import com.ensharp.jmdroid.couponmanagement.util.adapter.CouponRVAdapter;
 import com.ensharp.jmdroid.couponmanagement.value.Values;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class UsedActivity extends BaseActivity {
 
     LinearLayout mainView;
     RecyclerView rv_used;
-    UsedCouponRVAdapter usedCouponRVAdapter;
+    CouponRVAdapter couponRVAdapter;
     LinearLayoutManager linearLayoutManager;
 
     @Override
@@ -29,12 +34,23 @@ public class UsedActivity extends BaseActivity {
         linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(OrientationHelper.VERTICAL);
         rv_used.setLayoutManager(linearLayoutManager);
-        usedCouponRVAdapter = new UsedCouponRVAdapter(this, Values.getInstance().couponList);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        rv_used.setAdapter(usedCouponRVAdapter);
+        resetItem();
+        rv_used.setAdapter(couponRVAdapter);
+    }
+
+    public void resetItem() {
+        List<TBCoupon> tmpCouponList = new ArrayList<>();
+        for (int i = 0; i < Values.getInstance().couponList.size(); i++) {
+            if (Values.getInstance().couponList.get(i).isUsed()) {
+                tmpCouponList.add(Values.getInstance().couponList.get(i));
+            }
+        }
+        Collections.reverse(tmpCouponList);
+        couponRVAdapter = new CouponRVAdapter(this, tmpCouponList);
     }
 }

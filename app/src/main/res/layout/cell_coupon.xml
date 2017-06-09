@@ -8,6 +8,7 @@
     app:cardElevation="0dp">
 
     <FrameLayout
+        android:id="@+id/fl_cell"
         android:layout_width="match_parent"
         android:layout_height="150dp">
 
@@ -49,7 +50,7 @@
                     android:textSize="25dp" />
             </LinearLayout>
             <ImageButton
-                android:id="@+id/btn_detail"
+                android:id="@+id/btn_delete"
                 android:layout_gravity="center"
                 android:layout_width="50dp"
                 android:layout_height="50dp" />

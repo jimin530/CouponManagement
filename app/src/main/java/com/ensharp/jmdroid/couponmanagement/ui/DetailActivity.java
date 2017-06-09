@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.ensharp.jmdroid.couponmanagement.R;
 import com.ensharp.jmdroid.couponmanagement.realm.controll.DBController;
@@ -31,7 +32,15 @@ public class DetailActivity extends AppCompatActivity {
     public void onBackToMainFromDetail(View view) {
         onBackPressed();
     }
+
     public void onChangeUsed(View view) {
-        dbController.updateToUsed(timeKey);
+        try {
+            dbController.updateToUsed(timeKey);
+            finish();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "오류 발생", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 }
