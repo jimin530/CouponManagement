@@ -1,5 +1,7 @@
 package com.ensharp.jmdroid.couponmanagement.vo;
 
+import android.net.Uri;
+
 /**
  * Created by jimin on 2017. 6. 8..
  */
@@ -15,22 +17,9 @@ public class CouponVO {
     String registrationDate; // 등록 날짜 (해당 앱)
     String expirationDate; // 유효기간
     String usedPlace; // 사용처
-    byte[] couponImage; // 쿠폰 전체 이미지
+    Uri couponImage; // 쿠폰 전체 이미지
     String barcodeNumber; // 바코드 숫자
-    byte[] barcodeImage; // 바코드 이미지
-
-    public CouponVO(boolean used, int category, String title, String content, String registrationDate, String expirationDate, String usedPlace, byte[] couponImage, String barcodeNumber, byte[] barcodeImage) {
-        this.used = used;
-        this.category = category;
-        this.title = title;
-        this.content = content;
-        this.registrationDate = registrationDate;
-        this.expirationDate = expirationDate;
-        this.usedPlace = usedPlace;
-        this.couponImage = couponImage;
-        this.barcodeNumber = barcodeNumber;
-        this.barcodeImage = barcodeImage;
-    }
+    Uri barcodeImage; // 바코드 이미지
 
     public boolean isUsed() {
         return used;
@@ -88,11 +77,11 @@ public class CouponVO {
         this.usedPlace = usedPlace;
     }
 
-    public byte[] getCouponImage() {
+    public Uri getCouponImage() {
         return couponImage;
     }
 
-    public void setCouponImage(byte[] couponImage) {
+    public void setCouponImage(Uri couponImage) {
         this.couponImage = couponImage;
     }
 
@@ -104,11 +93,25 @@ public class CouponVO {
         this.barcodeNumber = barcodeNumber;
     }
 
-    public byte[] getBarcodeImage() {
+    public Uri getBarcodeImage() {
         return barcodeImage;
     }
 
-    public void setBarcodeImage(byte[] barcodeImage) {
+    public void setBarcodeImage(Uri barcodeImage) {
+        this.barcodeImage = barcodeImage;
+    }
+
+    public CouponVO(boolean used, int category, String title, String content, String registrationDate, String expirationDate, String usedPlace, Uri couponImage, String barcodeNumber, Uri barcodeImage) {
+
+        this.used = used;
+        this.category = category;
+        this.title = title;
+        this.content = content;
+        this.registrationDate = registrationDate;
+        this.expirationDate = expirationDate;
+        this.usedPlace = usedPlace;
+        this.couponImage = couponImage;
+        this.barcodeNumber = barcodeNumber;
         this.barcodeImage = barcodeImage;
     }
 }

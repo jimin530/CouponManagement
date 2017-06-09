@@ -2,6 +2,7 @@ package com.ensharp.jmdroid.couponmanagement.util.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,9 @@ public class CouponRVAdapter extends RecyclerView.Adapter<CouponRVAdapter.ViewHo
                 context.startActivity(intent);
             }
         });*/
+        //if(tmpCouponList.get(position).getCouponImage() != null) {
+        //viewHolder.iv_coupon_thumbnail.setImageURI(tmpCouponList.get(position).getCouponImage());
+        //}
         viewHolder.tv_coupon_title.setText(tmpCouponList.get(position).getTitle());
         viewHolder.tv_coupon_content.setText(tmpCouponList.get(position).getContent());
     }

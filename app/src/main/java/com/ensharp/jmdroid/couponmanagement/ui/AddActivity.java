@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.ensharp.jmdroid.couponmanagement.R;
 import com.ensharp.jmdroid.couponmanagement.realm.controll.DBController;
-import com.ensharp.jmdroid.couponmanagement.util.uri.UriController;
 import com.ensharp.jmdroid.couponmanagement.vo.CouponVO;
 
 public class AddActivity extends AppCompatActivity {
@@ -21,8 +20,7 @@ public class AddActivity extends AppCompatActivity {
     EditText et_coupon_content;
     ImageView iv_selected_image;
 
-    byte[] bmFullImage;
-
+    Uri selectedImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +46,7 @@ public class AddActivity extends AppCompatActivity {
             case 100:
                 if (resultCode == RESULT_OK) {
                     try {
-                        Uri selectedImage = imageReturnedIntent.getData();
-                        bmFullImage = UriController.getBitmapFromURI(selectedImage);
-
+                        selectedImage = imageReturnedIntent.getData();
                         iv_selected_image.setImageURI(selectedImage);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -82,9 +78,9 @@ public class AddActivity extends AppCompatActivity {
                         "등록날짜",
                         "유효기간",
                         "사용처",
-                        bmFullImage,
+                        selectedImage,
                         "바코드숫자",
-                        bmFullImage
+                        selectedImage
                 );
                 dbController.insertData(couponVO);
                 finish();

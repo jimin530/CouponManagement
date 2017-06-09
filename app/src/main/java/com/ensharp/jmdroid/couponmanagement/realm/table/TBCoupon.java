@@ -1,5 +1,7 @@
 package com.ensharp.jmdroid.couponmanagement.realm.table;
 
+import android.net.Uri;
+
 import io.realm.RealmObject;
 
 /**
@@ -14,9 +16,9 @@ public class TBCoupon extends RealmObject {
     String registrationDate; // 등록 날짜 (해당 앱)
     String expirationDate; // 유효기간
     String usedPlace; // 사용처
-    byte[] couponImage; // 쿠폰 전체 이미지
+    Uri couponImage; // 쿠폰 전체 이미지
     String barcodeNumber; // 바코드 숫자
-    byte[] barcodeImage; // 바코드 이미지
+    Uri barcodeImage; // 바코드 이미지
 
     public boolean isUsed() {
         return used;
@@ -74,11 +76,11 @@ public class TBCoupon extends RealmObject {
         this.usedPlace = usedPlace;
     }
 
-    public byte[] getCouponImage() {
+    public Uri getCouponImage() {
         return couponImage;
     }
 
-    public void setCouponImage(byte[] couponImage) {
+    public void setCouponImage(Uri couponImage) {
         this.couponImage = couponImage;
     }
 
@@ -90,11 +92,11 @@ public class TBCoupon extends RealmObject {
         this.barcodeNumber = barcodeNumber;
     }
 
-    public byte[] getBarcodeImage() {
+    public Uri getBarcodeImage() {
         return barcodeImage;
     }
 
-    public void setBarcodeImage(byte[] barcodeImage) {
+    public void setBarcodeImage(Uri barcodeImage) {
         this.barcodeImage = barcodeImage;
     }
 }

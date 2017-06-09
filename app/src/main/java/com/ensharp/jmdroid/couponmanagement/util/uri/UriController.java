@@ -72,7 +72,7 @@ public class UriController {
         return cursor.getString(column_index);
     }
 
-    public static byte[] getBitmapFromURI(Uri uri) {
+    public static byte[] getByteArrayFromURI(Uri uri) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         FileInputStream fis;
         try {
