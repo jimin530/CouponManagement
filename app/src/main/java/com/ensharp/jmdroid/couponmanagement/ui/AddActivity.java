@@ -25,7 +25,7 @@ public class AddActivity extends AppCompatActivity {
     EditText et_coupon_content;
     ImageView iv_selected_image;
 
-    String selectedImagePath;
+    String selectedImagePath = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +86,8 @@ public class AddActivity extends AppCompatActivity {
     public void onRegist(View view) {
         if (et_coupon_title.getText().toString().length() == 0) {
             Toast.makeText(this, "쿠폰 이름을 입력해주세요.", Toast.LENGTH_SHORT).show();
+        } else if (selectedImagePath.equals("")) {
+            Toast.makeText(this, "쿠폰 사진을 등록해주세요.", Toast.LENGTH_SHORT).show();
         } else {
             try {
                 long time = System.currentTimeMillis();

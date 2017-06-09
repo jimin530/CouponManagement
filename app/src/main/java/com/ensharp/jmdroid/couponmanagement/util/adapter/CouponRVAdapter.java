@@ -18,7 +18,6 @@ import com.ensharp.jmdroid.couponmanagement.ottobus.OttoBus;
 import com.ensharp.jmdroid.couponmanagement.realm.controll.DBController;
 import com.ensharp.jmdroid.couponmanagement.realm.table.TBCoupon;
 import com.ensharp.jmdroid.couponmanagement.ui.DetailActivity;
-import com.ensharp.jmdroid.couponmanagement.util.bitmap.BitmapController;
 import com.ensharp.jmdroid.couponmanagement.value.Values;
 
 import java.util.ArrayList;
@@ -69,18 +68,17 @@ public class CouponRVAdapter extends RecyclerView.Adapter<CouponRVAdapter.ViewHo
                 }
             });
         }
-        try {
-            viewHolder.iv_coupon_thumbnail.setImageBitmap(BitmapController.pathToBitmap(tmpCouponList.get(position).getCouponImage()));
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            viewHolder.iv_coupon_thumbnail.setImageBitmap(BitmapController.pathToBitmap(tmpCouponList.get(position).getCouponImage()));
+//        } catch (NullPointerException e) {
+//            e.printStackTrace();
+//        }
         viewHolder.tv_coupon_title.setText(tmpCouponList.get(position).getTitle());
         viewHolder.tv_coupon_content.setText(tmpCouponList.get(position).getContent());
         viewHolder.btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final AlertDialog dialog;
-
+                AlertDialog dialog;
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
                 builder.setMessage("삭제하시겠습니까?")
