@@ -18,6 +18,7 @@ import com.ensharp.jmdroid.couponmanagement.ottobus.OttoBus;
 import com.ensharp.jmdroid.couponmanagement.realm.controll.DBController;
 import com.ensharp.jmdroid.couponmanagement.realm.table.TBCoupon;
 import com.ensharp.jmdroid.couponmanagement.ui.DetailActivity;
+import com.ensharp.jmdroid.couponmanagement.util.bitmap.BitmapController;
 import com.ensharp.jmdroid.couponmanagement.value.Values;
 
 import java.util.ArrayList;
@@ -68,11 +69,16 @@ public class CouponRVAdapter extends RecyclerView.Adapter<CouponRVAdapter.ViewHo
                 }
             });
         }
-//        try {
-//            viewHolder.iv_coupon_thumbnail.setImageBitmap(BitmapController.pathToBitmap(tmpCouponList.get(position).getCouponImage()));
-//        } catch (NullPointerException e) {
-//            e.printStackTrace();
-//        }
+        /*try {
+            viewHolder.iv_coupon_thumbnail.setImageBitmap(BitmapController.pathToBitmap(tmpCouponList.get(position).getCouponImage()));
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }*/
+        try {
+            viewHolder.iv_coupon_thumbnail.setImageBitmap(BitmapController.pathTOThumnail(tmpCouponList.get(position).getCouponImage(), 180, 180));
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
         viewHolder.tv_coupon_title.setText(tmpCouponList.get(position).getTitle());
         viewHolder.tv_coupon_content.setText(tmpCouponList.get(position).getContent());
         viewHolder.btn_delete.setOnClickListener(new View.OnClickListener() {
