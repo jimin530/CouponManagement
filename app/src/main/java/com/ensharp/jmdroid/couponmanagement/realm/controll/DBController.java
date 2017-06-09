@@ -49,12 +49,10 @@ public class DBController {
     }
 
     // Delete
-    public void deleteData(int index) {
+    public void deleteData(String timeKey) {
         Values.getInstance().realm.beginTransaction();
-        // 특정 index 값 삭제
-        //Values.getInstance().couponList.deleteFromRealm(index);
-        // DB 초기화
-        Values.getInstance().couponList.deleteAllFromRealm();
+        TBCoupon tbCoupon = Values.getInstance().realm.where(TBCoupon.class).equalTo("registrationDate", timeKey).findFirst();
+        tbCoupon.deleteFromRealm();
         Values.getInstance().realm.commitTransaction();
     }
 

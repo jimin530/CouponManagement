@@ -71,7 +71,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Values.getInstance().selectedItemNumber = 0;
+        // Values.getInstance().selectedItemNumber = 0;
     }
 
     public void onAdd(View view) {

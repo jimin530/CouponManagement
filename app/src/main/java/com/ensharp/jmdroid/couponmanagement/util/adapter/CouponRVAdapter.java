@@ -1,7 +1,9 @@
 package com.ensharp.jmdroid.couponmanagement.util.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +12,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ensharp.jmdroid.couponmanagement.R;
+import com.ensharp.jmdroid.couponmanagement.ottobus.OttoBus;
+import com.ensharp.jmdroid.couponmanagement.realm.controll.DBController;
 import com.ensharp.jmdroid.couponmanagement.realm.table.TBCoupon;
 import com.ensharp.jmdroid.couponmanagement.ui.DetailActivity;
 import com.ensharp.jmdroid.couponmanagement.util.bitmap.BitmapController;
@@ -28,6 +31,7 @@ import java.util.List;
 public class CouponRVAdapter extends RecyclerView.Adapter<CouponRVAdapter.ViewHolder> {
     Context context;
     List<TBCoupon> tmpCouponList = new ArrayList<>();
+    DBController dbController = new DBController();
 
     public CouponRVAdapter(Context context, List<TBCoupon> tmpCouponList) {
         this.context = context;
@@ -75,7 +79,29 @@ public class CouponRVAdapter extends RecyclerView.Adapter<CouponRVAdapter.ViewHo
         viewHolder.btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "삭", Toast.LENGTH_SHORT).show();
+                final AlertDialog dialog;
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setMessage("삭제하시겠습니까?")
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                dbController.deleteData(tmpCouponList.get(position).getRegistrationDate());
+                                if (Values.getInstance().selectedItemNumber == 0) {
+                                    OttoBus.getInstance().getBusDeleteToUnused().post(context);
+                                } else if (Values.getInstance().selectedItemNumber == 1) {
+                                    OttoBus.getInstance().getBusDeleteToused().post(context);
+                                }
+                            }
+                        })
+                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                return;
+                            }
+                        });
+
+                dialog = builder.create();
+                dialog.show();
             }
         });
     }

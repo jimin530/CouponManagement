@@ -69,45 +69,47 @@
             android:layout_height="50dp"
             android:background="@drawable/custom_inner_layout_border"
             android:orientation="horizontal">
+
             <EditText
-                android:layout_marginLeft="10dp"
                 android:id="@+id/et_coupon_title"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
                 android:background="@android:color/transparent"
                 android:hint=" 쿠폰 이름"
                 android:textColor="@color/letterColor" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/custom_inner_layout_border"
             android:orientation="horizontal">
+
             <EditText
-                android:layout_marginLeft="10dp"
                 android:id="@+id/et_coupon_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
                 android:background="@android:color/transparent"
                 android:hint=" 쿠폰 내용"
                 android:textColor="@color/letterColor" />
         </LinearLayout>
 
         <ImageButton
-            android:onClick="onGallery"
-            android:background="@drawable/btn_gallery"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_gallery"
+            android:onClick="onGallery" />
 
         <ImageView
             android:id="@+id/iv_selected_image"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp" />
     </LinearLayout>
 </LinearLayout>

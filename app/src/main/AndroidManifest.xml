@@ -23,9 +23,8 @@
         </activity>
         <activity android:name=".ui.UsedActivity" />
         <activity android:name=".ui.OptionActivity" />
-        <activity android:name=".ui.RegistraionActivity" />
         <activity android:name=".ui.AddActivity" />
-        <activity android:name=".ui.DetailActivity"></activity>
+        <activity android:name=".ui.DetailActivity"/>
     </application>
 
 </manifest>

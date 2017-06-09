@@ -19,7 +19,7 @@ public class Values {
     private Values() {
     }
 
-    public int selectedItemNumber = 0;
+    public int selectedItemNumber;
 
     public Realm realm;
     public RealmResults<TBCoupon> couponList;

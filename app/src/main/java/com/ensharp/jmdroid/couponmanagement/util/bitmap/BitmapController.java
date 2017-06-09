@@ -30,7 +30,7 @@ public class BitmapController {
 
     public static Bitmap pathToBitmap(String path) {
         File file = new File(path);
-        if(file.exists()) {
+        if (file.exists()) {
             Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
             return bitmap;
         }
