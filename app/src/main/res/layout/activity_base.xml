@@ -34,7 +34,7 @@
                 android:text="기 프 트 북 "
                 android:textAlignment="center"
                 android:textColor="@color/appColor"
-                android:textSize="30dp" />
+                android:textSize="20dp" />
 
             <ImageButton
                 android:layout_width="40dp"
