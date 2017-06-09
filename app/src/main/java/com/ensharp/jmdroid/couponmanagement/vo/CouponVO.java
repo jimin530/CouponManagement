@@ -1,7 +1,5 @@
 package com.ensharp.jmdroid.couponmanagement.vo;
 
-import android.net.Uri;
-
 /**
  * Created by jimin on 2017. 6. 8..
  */
@@ -17,11 +15,25 @@ public class CouponVO {
     String registrationDate; // 등록 날짜 (해당 앱)
     String expirationDate; // 유효기간
     String usedPlace; // 사용처
-    Uri couponImage; // 쿠폰 전체 이미지
+    String couponImage; // 쿠폰 전체 이미지
     String barcodeNumber; // 바코드 숫자
-    Uri barcodeImage; // 바코드 이미지
+    String barcodeImage; // 바코드 이미지
+
+    public CouponVO(boolean used, int category, String title, String content, String registrationDate, String expirationDate, String usedPlace, String couponImage, String barcodeNumber, String barcodeImage) {
+        this.used = used;
+        this.category = category;
+        this.title = title;
+        this.content = content;
+        this.registrationDate = registrationDate;
+        this.expirationDate = expirationDate;
+        this.usedPlace = usedPlace;
+        this.couponImage = couponImage;
+        this.barcodeNumber = barcodeNumber;
+        this.barcodeImage = barcodeImage;
+    }
 
     public boolean isUsed() {
+
         return used;
     }
 
@@ -77,11 +89,11 @@ public class CouponVO {
         this.usedPlace = usedPlace;
     }
 
-    public Uri getCouponImage() {
+    public String getCouponImage() {
         return couponImage;
     }
 
-    public void setCouponImage(Uri couponImage) {
+    public void setCouponImage(String couponImage) {
         this.couponImage = couponImage;
     }
 
@@ -93,25 +105,11 @@ public class CouponVO {
         this.barcodeNumber = barcodeNumber;
     }
 
-    public Uri getBarcodeImage() {
+    public String getBarcodeImage() {
         return barcodeImage;
     }
 
-    public void setBarcodeImage(Uri barcodeImage) {
-        this.barcodeImage = barcodeImage;
-    }
-
-    public CouponVO(boolean used, int category, String title, String content, String registrationDate, String expirationDate, String usedPlace, Uri couponImage, String barcodeNumber, Uri barcodeImage) {
-
-        this.used = used;
-        this.category = category;
-        this.title = title;
-        this.content = content;
-        this.registrationDate = registrationDate;
-        this.expirationDate = expirationDate;
-        this.usedPlace = usedPlace;
-        this.couponImage = couponImage;
-        this.barcodeNumber = barcodeNumber;
+    public void setBarcodeImage(String barcodeImage) {
         this.barcodeImage = barcodeImage;
     }
 }

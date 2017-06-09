@@ -63,8 +63,8 @@ public class BaseActivity extends AppCompatActivity {
         navigation.getMenu().getItem(Values.getInstance().selectedItemNumber).setChecked(true);
 
         Log.i("확인", ">>>>>   Coupon.size :  " + Values.getInstance().couponList.size());
-        dbController.deleteData(0);
-        Log.i("확인", ">>>>>   Coupon.size :  " + Values.getInstance().couponList.size());
+        //dbController.deleteData(0);
+        //Log.i("확인", ">>>>>   Coupon.size :  " + Values.getInstance().couponList.size());
 
     }
 

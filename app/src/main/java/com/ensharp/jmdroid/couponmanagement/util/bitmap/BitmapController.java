@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 
 /**
  * Created by jimin on 2017. 6. 9..
@@ -25,5 +26,14 @@ public class BitmapController {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         return byteArray;
+    }
+
+    public static Bitmap pathToBitmap(String path) {
+        File file = new File(path);
+        if(file.exists()) {
+            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+            return bitmap;
+        }
+        return null;
     }
 }

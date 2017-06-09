@@ -2,7 +2,6 @@ package com.ensharp.jmdroid.couponmanagement.util.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,7 @@ import android.widget.TextView;
 
 import com.ensharp.jmdroid.couponmanagement.R;
 import com.ensharp.jmdroid.couponmanagement.realm.table.TBCoupon;
+import com.ensharp.jmdroid.couponmanagement.util.bitmap.BitmapController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,8 +59,9 @@ public class CouponRVAdapter extends RecyclerView.Adapter<CouponRVAdapter.ViewHo
             }
         });*/
         //if(tmpCouponList.get(position).getCouponImage() != null) {
-        //viewHolder.iv_coupon_thumbnail.setImageURI(tmpCouponList.get(position).getCouponImage());
+        viewHolder.iv_coupon_thumbnail.setImageBitmap(BitmapController.pathToBitmap(tmpCouponList.get(position).getCouponImage()));
         //}
+        // Log.i("어댑터에서 경로 확인 : ", tmpCouponList.get(position).getCouponImage());
         viewHolder.tv_coupon_title.setText(tmpCouponList.get(position).getTitle());
         viewHolder.tv_coupon_content.setText(tmpCouponList.get(position).getContent());
     }

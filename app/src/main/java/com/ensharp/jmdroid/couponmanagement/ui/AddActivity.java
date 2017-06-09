@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.ensharp.jmdroid.couponmanagement.R;
 import com.ensharp.jmdroid.couponmanagement.realm.controll.DBController;
+import com.ensharp.jmdroid.couponmanagement.util.uri.UriController;
 import com.ensharp.jmdroid.couponmanagement.vo.CouponVO;
 
 public class AddActivity extends AppCompatActivity {
@@ -20,7 +22,7 @@ public class AddActivity extends AppCompatActivity {
     EditText et_coupon_content;
     ImageView iv_selected_image;
 
-    Uri selectedImage;
+    String selectedImagePath;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +48,18 @@ public class AddActivity extends AppCompatActivity {
             case 100:
                 if (resultCode == RESULT_OK) {
                     try {
-                        selectedImage = imageReturnedIntent.getData();
+                        Uri selectedImage = imageReturnedIntent.getData();
                         iv_selected_image.setImageURI(selectedImage);
+                        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                            selectedImagePath = UriController.getRealPathFromURI_API19(this, selectedImage);
+                        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB
+                                && Build.VERSION.SDK_INT <= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                                    selectedImagePath = UriController.getRealPathFromURI_API11to18(this, selectedImage);
+                        } else {
+                            selectedImagePath = UriController.getRealPathFromURI_BelowAPI11(this, selectedImage);
+                        }*/
+                        selectedImagePath = UriController.getRealPathFromURI(this, selectedImage);
+                        Log.i("Add에서 경로 확인 : ", selectedImagePath);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -78,9 +90,9 @@ public class AddActivity extends AppCompatActivity {
                         "등록날짜",
                         "유효기간",
                         "사용처",
-                        selectedImage,
+                        selectedImagePath,
                         "바코드숫자",
-                        selectedImage
+                        selectedImagePath
                 );
                 dbController.insertData(couponVO);
                 finish();
