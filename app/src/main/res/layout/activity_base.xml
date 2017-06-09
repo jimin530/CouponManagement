@@ -9,7 +9,7 @@
     tools:context="com.ensharp.jmdroid.couponmanagement.ui.BaseActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/tb_base"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
@@ -28,19 +28,29 @@
                 android:layout_weight="1" />
 
             <ImageButton
-                android:layout_marginRight="20dp"
-                android:layout_gravity="center"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/btn_add"
                 android:onClick="onAdd" />
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
+    <!--옅은 구분선-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/devidedLineColor" />
+
     <LinearLayout
         android:id="@+id/mainView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
         android:layout_weight="1"
         android:orientation="vertical"></LinearLayout>
 

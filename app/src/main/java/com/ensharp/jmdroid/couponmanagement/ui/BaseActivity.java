@@ -17,7 +17,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.ensharp.jmdroid.couponmanagement.R;
 import com.ensharp.jmdroid.couponmanagement.realm.controll.DBController;
@@ -118,7 +117,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void onAdd(View view) {
-        Toast.makeText(this, "추가", Toast.LENGTH_SHORT).show();
-
+        Intent intent = new Intent(this, AddActivity.class);
+        startActivity(intent);
     }
 }
