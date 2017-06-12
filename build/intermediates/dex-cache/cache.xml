@@ -2,6 +2,51 @@
 <items version="2" >
 
     <item
+        is-multidex="false"
+        jar="/Users/jimin/.android/build-cache/47aa6a7e7b617d441f881dc261b54555bd000c99/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b64dd5f01bc37de289f90fd59299b0c76d119611">
+        <dex dex="/Users/jimin/Project/Android/CouponManagement/app/build/intermediates/pre-dexed/release/classes_a41a5869baf286d4a906ac2eca63dc3e12ad5fea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jimin/.gradle/caches/modules-2/files-2.1/io.realm/realm-annotations/3.3.1/bacd2ccd9a7f55c4205e02ad4d9183813d0bdcc3/realm-annotations-3.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bacd2ccd9a7f55c4205e02ad4d9183813d0bdcc3">
+        <dex dex="/Users/jimin/Project/Android/CouponManagement/app/build/intermediates/pre-dexed/release/realm-annotations-3.3.1_2ddc464fc8e20859351feb14c4f2e1d721e79128.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jimin/.android/build-cache/0ce1c1487ed7e06b5f7b4778646381d8bfc6ff53/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="/Users/jimin/Project/Android/CouponManagement/app/build/intermediates/pre-dexed/release/classes_ae893c19840e41d8b86d8c56395513ca9bdc8b03.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jimin/.android/build-cache/373e3442711f6381c2a8dfb5fc09a7bc5e1dfec4/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="07d6ee506b0d643cac58d5f1a514a802d359dc87">
+        <dex dex="/Users/jimin/Project/Android/CouponManagement/app/build/intermediates/pre-dexed/release/classes_2d0f062388c5160fb537ea8408a6f05f304e896c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jimin/.android/build-cache/6feb38ca9fd340ef21795c960c56a084cdae6a08/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="/Users/jimin/Project/Android/CouponManagement/app/build/intermediates/pre-dexed/release/classes_fb92c9e0f01f75784897395a5c6282006792ff78.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="/Users/jimin/Project/Android/CouponManagement/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
